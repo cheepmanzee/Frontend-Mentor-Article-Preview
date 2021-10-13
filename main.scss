@@ -1,0 +1,224 @@
+@import 'nullstyle.scss';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #EDF2F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.card__wrapper {
+    max-width: 770px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card {
+        border-radius: 0.7rem;
+        display: flex;
+        width: 100%;
+        background-color: #fff;
+        height: 280px;
+        .card__picture {
+            border-radius: 0.7rem 0 0 0.7rem;
+            width: 45%;
+            height: 100%;
+            background-image: url(img/drawers.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .card__content {
+            width: 55%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .content__text {
+                h1 {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: hsl(217, 19%, 35%);
+                    line-height: 1.35;
+                    letter-spacing: 0.45px;
+                }
+                p {
+                    margin-top: 15px;
+                    font-size: 13px;
+                    line-height: 1.6;
+                    color: hsl(214, 17%, 51%);
+                }
+            }  
+        }.content__person {
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            .person__info {
+                display: flex;
+                align-items: center;
+                .person__name {
+                    font-size: 12px;
+                    margin-left: 10px;
+                    h2 {
+                        margin-bottom: 5px;
+                        font-weight: 700;
+                        color: hsl(217, 19%, 35%);    
+                    }
+                    p {
+                        color: hsl(214, 17%, 51%);
+                    }
+                }
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+            .person__share {
+                z-index: 100;
+                position: relative;
+                background-color: #EDF1FA;
+                height: 38px;
+                width: 38px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: 0.3s ease;
+                &:hover {
+                    opacity: 0.7;
+                }
+                img {
+                    display: block;
+                    margin: 11px auto 0;
+                }
+            }
+            .popup {
+                opacity: 1 !important;
+                pointer-events: initial !important;
+                transform: translateY(-10px);
+            }
+            .share__popup {
+                opacity: 0;
+                transition: 0.3s ease;
+                pointer-events: none;
+                display: flex;
+                right: -11.5%;
+                top: -190%;
+                border-radius: 0.7rem;
+                position: absolute;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 250px;
+                height: 40px;
+                padding: 10px;
+                background-color: #49556B;
+                .triangle {
+                    position: absolute;
+                    bottom: -30%;
+                    left: 70%;
+                    width: 0;
+                    height: 0;
+                    border: 18px solid transparent;
+                    border-top: 0;
+                    border-bottom: 20px solid #49556B;
+                    transform: rotate(180deg);
+                }
+                a {
+                    transition: 0.3s ease;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+                .share-title {
+                    text-transform: uppercase;
+                    color: #737F95;
+                    letter-spacing: 0.2rem;
+                    font-size: 14px;
+                }
+            }
+            .popup-mobile {
+                opacity: 1 !important;
+                pointer-events: initial !important;
+            }
+            .share__popup-mobile {
+                display: none;
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.3s ease;
+                .share-title {
+                    text-transform: uppercase;
+                    color: #737F95;
+                    letter-spacing: 0.2rem;
+                    font-size: 14px;
+                }
+            }
+        }  
+    }
+}
+
+@media (max-width: 768px) {
+    .card__wrapper {
+        max-width: 768px;
+        .card {
+            margin: 15px 0;
+            height: auto;
+            flex-direction: column;
+            .card__picture {
+                height: 320px;
+                width: 100%;
+                border-radius: 0.7rem 0.7rem 0 0;
+                background-position: top center;
+            }
+            .card__content {
+                width: 85%;
+                align-self: center;
+                .content__person {
+                    margin-top: 40px;
+                    .share__popup {
+                        display: none;
+                    }
+                    .share__popup-mobile {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        position: absolute;
+                        width: 118%;
+                        border-radius: 0 0 0.7rem 0.7rem;
+                        left: -9%;
+                        bottom: -74%;
+                        padding: 35px 0 35px;
+                        background-color: #49556B;
+                        .popup-mobile__wrapper {
+                            width: 65%;
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:568px) {
+    .card__wrapper {
+        .card {
+            .card__picture {
+                height: 220px;
+            }
+        }
+    }  
+}
